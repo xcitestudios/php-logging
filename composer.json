@@ -10,7 +10,9 @@
             "email": "wade85@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+    	"ext-SPL_Types": "0.4.*"
+    },
     "require-dev": {},
     "autoload": {
         "psr-4": {
