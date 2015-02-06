@@ -1,0 +1,20 @@
+{
+    "name": "xcitestudios/Logging",
+    "description": "Standard logging classes and interfaces",
+	"homepage": "https://xcitestudios.com/",
+    "license": "MIT",
+    "keywords": ["xcitestudios", "logging"],
+    "authors": [
+        {
+            "name": "Wade Womersley",
+            "email": "wade85@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "com\\xcitestudios\\Logging\\": "src/"
+        }
+    }
+}
