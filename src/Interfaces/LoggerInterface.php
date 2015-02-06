@@ -12,5 +12,5 @@ interface LoggerInterface
      * @param LogMessageInterface Message to handle
      * @return void
      */
-    public function log(LogMessageInterface message);
+    public function log(LogMessageInterface $message);
 }
