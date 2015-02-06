@@ -9,144 +9,144 @@ use DateTime;
  */
 interface LogMessageInterface
 {
-	/**
-	 * Set the severity of this log message.
-	 *
-	 * @param LogSeverity $severity ENUM log severity
-	 * @return void
-	 */
-	public function setLogSeverity(LogSeverity $severity);
-	
-	/**
-	 * Get the severity of this log message.
-	 *
-	 * @return LogSeverity
-	 */
-	public function getLogSeverity();
+    /**
+     * Set the severity of this log message.
+     *
+     * @param LogSeverity $severity ENUM log severity
+     * @return void
+     */
+    public function setLogSeverity(LogSeverity $severity);
+    
+    /**
+     * Get the severity of this log message.
+     *
+     * @return LogSeverity
+     */
+    public function getLogSeverity();
 
-	/**
-	 * Set the datetime this log event occured (ISO8601 combined date/time format (including timezone) for storage).
-	 *
-	 * @param DateTime $datetime Date/Time log occurred.
-	 * @return void
-	 */
-	public function setDateTime(DateTime $datetime);
-	
-	/**
-	 * Get the datetime this log event occured (ISO8601 combined date/time format (including timezone) for storage).
-	 *
-	 * @return DateTime
-	 */
-	public function getDateTime();
-	
-	/**
-	 * Set the identifier of the machine the log came from (IP, DNS name etc, any unique identifier).
-	 *
-	 * @param string $source Source of the message.
-	 * @return void
-	 */
-	public function setSource($source);
-	
-	/**
-	 * Get the identifier of the machine the log came from (IP, DNS name etc, any unique identifier).
-	 *
-	 * @return string
-	 */
-	public function getSource();
-	
+    /**
+     * Set the datetime this log event occured (ISO8601 combined date/time format (including timezone) for storage).
+     *
+     * @param DateTime $datetime Date/Time log occurred.
+     * @return void
+     */
+    public function setDateTime(DateTime $datetime);
+    
+    /**
+     * Get the datetime this log event occured (ISO8601 combined date/time format (including timezone) for storage).
+     *
+     * @return DateTime
+     */
+    public function getDateTime();
+    
+    /**
+     * Set the identifier of the machine the log came from (IP, DNS name etc, any unique identifier).
+     *
+     * @param string $source Source of the message.
+     * @return void
+     */
+    public function setSource($source);
+    
+    /**
+     * Get the identifier of the machine the log came from (IP, DNS name etc, any unique identifier).
+     *
+     * @return string
+     */
+    public function getSource();
+    
     /**
      * Set the application that raised the log.
-	 *
-	 * @param string $application application this log relates to.
-	 * @return void
-	 */
-	public function setApplication($application);
-	
-	/**
-	 * Get the application that raised the log.
-	 *
-	 * @return string
-	 */
-	public function getApplication();
+     *
+     * @param string $application application this log relates to.
+     * @return void
+     */
+    public function setApplication($application);
+    
+    /**
+     * Get the application that raised the log.
+     *
+     * @return string
+     */
+    public function getApplication();
 
     /**
      * Set the optional module in the application that raised the log.
-	 *
-	 * @param string $module module this log relates to in the application.
-	 * @return void
-	 */
-	public function setModule($module);
-	
-	/**
-	 * Get the optional module in the application that raised the log.
-	 *
-	 * @return string
-	 */
-	public function getModule();
+     *
+     * @param string $module module this log relates to in the application.
+     * @return void
+     */
+    public function setModule($module);
+    
+    /**
+     * Get the optional module in the application that raised the log.
+     *
+     * @return string
+     */
+    public function getModule();
 
     /**
      * Set the message for the log but use printf standard for arguments where requirement.
-	 *
-	 * @param string $message message to return for the log
-	 * @return void
-	 */
-	public function setMessage($message);
-	
-	/**
-	 * Get the message for the log but use printf standard for arguments where requirement.
-	 *
-	 * @return string
-	 */
-	public function getMessage();
-	
-	/**
-	 * Sets the arguments to format into message.
-	 *
-	 * @param array $args arguments
-	 * @return void
-	 */
-	public function setMessageArgs(array $args);
-	
-	/**
-	 * Gets the arguments to format into message.
-	 *
-	 * @return array arguments
-	 */
-	public function getMessageArgs($args);
-	
-	/**
-	 * Gets message using messageArgs and printf.
-	 *
-	 * @return string
-	 */
-	public function getFormattedMessage();
+     *
+     * @param string $message message to return for the log
+     * @return void
+     */
+    public function setMessage($message);
+    
+    /**
+     * Get the message for the log but use printf standard for arguments where requirement.
+     *
+     * @return string
+     */
+    public function getMessage();
+    
+    /**
+     * Sets the arguments to format into message.
+     *
+     * @param array $args arguments
+     * @return void
+     */
+    public function setMessageArgs(array $args);
+    
+    /**
+     * Gets the arguments to format into message.
+     *
+     * @return array arguments
+     */
+    public function getMessageArgs($args);
+    
+    /**
+     * Gets message using messageArgs and printf.
+     *
+     * @return string
+     */
+    public function getFormattedMessage();
 
     /**
-     * Set any extra data to store alongside the log entry.	
-	 *
-	 * @return void
-	 */
-	public function setExtra($extra);
-	
-	/**
-	 * Get any extra data to store alongside the log entry.	
-	 *
-	 * @return string
-	 */
-	public function getExtra();
+     * Set any extra data to store alongside the log entry.    
+     *
+     * @return void
+     */
+    public function setExtra($extra);
+    
+    /**
+     * Get any extra data to store alongside the log entry.    
+     *
+     * @return string
+     */
+    public function getExtra();
 
-	/**
-	 * Convert a JSON representation of this message in to an actual LogMessage object.
-	 *
-	 * @param string $jsonString Representation of this message
-	 * @return void
-	 */
-	public function deserialize($jsonString);
+    /**
+     * Convert a JSON representation of this message in to an actual LogMessage object.
+     *
+     * @param string $jsonString Representation of this message
+     * @return void
+     */
+    public function deserialize($jsonString);
 
-	/**
-	 * Convert this message into JSON so it can be handled by anything that supports JSON.
-	 *
-	 * @return string A representation of this log message.
-	 */
-	public function serialize();
+    /**
+     * Convert this message into JSON so it can be handled by anything that supports JSON.
+     *
+     * @return string A representation of this log message.
+     */
+    public function serialize();
 }

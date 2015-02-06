@@ -6,11 +6,11 @@ namespace com\xcitestudios\Logging\Interfaces;
  */
 interface LoggerInterface
 {
-	/**
-	 * Handle the provided log message however it needs to be handled.
-	 * 
-	 * @param LogMessageInterface Message to handle
-	 * @return void
-	 */
-	public function log(LogMessageInterface message);
+    /**
+     * Handle the provided log message however it needs to be handled.
+     * 
+     * @param LogMessageInterface Message to handle
+     * @return void
+     */
+    public function log(LogMessageInterface message);
 }
