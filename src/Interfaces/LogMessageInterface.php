@@ -2,12 +2,14 @@
 namespace com\xcitestudios\Logging\Interfaces;
 
 use com\xcitestudios\Logging\LogSeverity;
+use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface;
 use DateTime;
 
 /**
  * A message to be logged.
  */
 interface LogMessageInterface
+    extends SerializationInterface
 {
     /**
      * Set the severity of this log message.
@@ -112,7 +114,7 @@ interface LogMessageInterface
      *
      * @return array arguments
      */
-    public function getMessageArgs($args);
+    public function getMessageArgs();
     
     /**
      * Gets message using messageArgs and printf.
@@ -134,19 +136,4 @@ interface LogMessageInterface
      * @return string
      */
     public function getExtra();
-
-    /**
-     * Convert a JSON representation of this message in to an actual LogMessage object.
-     *
-     * @param string $jsonString Representation of this message
-     * @return void
-     */
-    public function deserialize($jsonString);
-
-    /**
-     * Convert this message into JSON so it can be handled by anything that supports JSON.
-     *
-     * @return string A representation of this log message.
-     */
-    public function serialize();
 }

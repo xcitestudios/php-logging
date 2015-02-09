@@ -2,11 +2,13 @@
 namespace com\xcitestudios\Logging;
 
 use SplEnum;
+use JsonSerializable;
 
 /**
  * Log severities based on syslog.
  */
 class LogSeverity extends SplEnum
+    implements JsonSerializable
 {
     const __default = self::debug;
     
@@ -55,4 +57,42 @@ class LogSeverity extends SplEnum
      * Info useful to developers for debugging the application, not useful during operations.
      */
     const debug = 7;
+    
+    /**
+     * Allow setting value by syslog string (constant name).
+     * 
+     * @param string|int $value const or string, one of: emergency, alert, critical, error, warning, notice, informational, debug
+     * @throws RuntimeException if the string value is invalid
+     */
+    public function __construct($value = self::__default)
+    {
+        if (gettype($value) === 'string') {
+            if (!array_key_exists($value, $this->getConstList())) {
+                throw new \RuntimeException(sprintf('String value for %s is not valid, got %s', __CLASS__, $value));
+            }
+            
+            $value = $this->getConstList()[$value];
+        }
+        
+        parent::__construct($value);
+    }
+    
+    /**
+     * Return the syslog string value when cast to string.
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return array_flip($this->getConstList())[(int)$this];
+    }
+
+    /**
+     * We should always be a string.
+     * 
+     * @return string
+     */
+    public function jsonSerialize() {
+        return (string)$this;
+    }
 }
