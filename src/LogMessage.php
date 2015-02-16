@@ -236,7 +236,7 @@ class LogMessage implements Interfaces\LogMessageInterface,
      * @param string $jsonString Representation of the object
      * @return void
      */
-    public function deserialize($jsonString)
+    public function deserializeJSON($jsonString)
     {
         $data = \json_decode($jsonString);
         
@@ -266,7 +266,7 @@ class LogMessage implements Interfaces\LogMessageInterface,
      *
      * @return string A JSON representation of this object.
      */
-    public function serialize()
+    public function serializeJSON()
     {
         return \json_encode($this);
     }

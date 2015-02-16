@@ -27,7 +27,7 @@ class LogMessageTest extends \PHPUnit_Framework_TestCase
         $firstMessage->setModule($module);
         $firstMessage->setSource($source);
         
-        $serialized = $firstMessage->serialize();
+        $serialized = $firstMessage->serializeJSON();
         
         $retriever = new \JsonSchema\Uri\UriRetriever;
         $schema = $retriever->retrieve('file://' . realpath('vendor/xcitestudios/json-schemas/com/xcitestudios/schemas/Logging/LogMessage.json'));
@@ -69,10 +69,10 @@ class LogMessageTest extends \PHPUnit_Framework_TestCase
         $firstMessage->setModule($module);
         $firstMessage->setSource($source);
         
-        $serialized = $firstMessage->serialize();
+        $serialized = $firstMessage->serializeJSON();
         
         $secondMessage = new \com\xcitestudios\Logging\LogMessage();
-        $secondMessage->deserialize($serialized);
+        $secondMessage->deserializeJSON($serialized);
         
         $this->assertEquals($firstMessage->getApplication(), $secondMessage->getApplication());
         $this->assertEquals($firstMessage->getDateTime(), $secondMessage->getDateTime());
