@@ -6,7 +6,7 @@ use DateTime;
 use JsonSerializable;
 use stdClass;
 
-class LogMessage implements Interfaces\LogMessageInterface, 
+class LogMessage implements Interfaces\LogMessageSerializableInterface,
     JsonSerializable
 {
     /**

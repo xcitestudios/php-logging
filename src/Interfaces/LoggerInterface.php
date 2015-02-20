@@ -9,7 +9,7 @@ interface LoggerInterface
     /**
      * Handle the provided log message however it needs to be handled.
      * 
-     * @param LogMessageInterface Message to handle
+     * @param LogMessageInterface $message Message to handle
      * @return void
      */
     public function log(LogMessageInterface $message);

@@ -9,7 +9,6 @@ use DateTime;
  * A message to be logged.
  */
 interface LogMessageInterface
-    extends SerializationInterface
 {
     /**
      * Set the severity of this log message.
