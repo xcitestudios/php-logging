@@ -1,4 +1,11 @@
 <?php
+/**
+ * com.xcitestudios.Logging
+ *
+ * @copyright Wade Womersley (xcitestudios)
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
+ * @link https://xcitestudios.com/
+ */
 
 namespace com\xcitestudios\Logging;
 
@@ -6,6 +13,9 @@ use DateTime;
 use JsonSerializable;
 use stdClass;
 
+/**
+ * A basic implementation of a the LoggMessageSerializableInterface.
+ */
 class LogMessage implements Interfaces\LogMessageSerializableInterface,
     JsonSerializable
 {
@@ -53,11 +63,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the severity of this log message.
      *
      * @param LogSeverity $severity ENUM log severity
-     * @return void
+     * @return static
      */
     public function setLogSeverity(LogSeverity $severity)
     {
         $this->severity = $severity;
+
+        return $this;
     }
 
     /**
@@ -74,11 +86,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the datetime this log event occured (ISO8601 combined date/time format (including timezone) for storage).
      *
      * @param DateTime $datetime Date/Time log occurred.
-     * @return void
+     * @return static
      */
     public function setDateTime(DateTime $datetime)
     {
         $this->datetime = $datetime;
+
+        return $this;
     }
 
     /**
@@ -95,11 +109,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the identifier of the machine the log came from (IP, DNS name etc, any unique identifier).
      *
      * @param string $source Source of the message.
-     * @return void
+     * @return static
      */
     public function setSource($source)
     {
         $this->source = $source;
+
+        return $this;
     }
 
     /**
@@ -116,11 +132,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the application that raised the log.
      *
      * @param string $application application this log relates to.
-     * @return void
+     * @return static
      */
     public function setApplication($application)
     {
         $this->application = $application;
+
+        return $this;
     }
 
     /**
@@ -137,11 +155,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the optional module in the application that raised the log.
      *
      * @param string $module module this log relates to in the application.
-     * @return void
+     * @return static
      */
     public function setModule($module)
     {
         $this->module = $module;
+
+        return $this;
     }
 
     /**
@@ -158,11 +178,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Set the message for the log but use printf standard for arguments where requirement.
      *
      * @param string $message message to return for the log
-     * @return void
+     * @return static
      */
     public function setMessage($message)
     {
         $this->message = $message;
+
+        return $this;
     }
 
     /**
@@ -179,11 +201,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
      * Sets the arguments to format into message.
      *
      * @param array $args arguments
-     * @return void
+     * @return static
      */
     public function setMessageArgs(array $args)
     {
         $this->messageArgs = $args;
+
+        return $this;
     }
 
     /**
@@ -211,11 +235,13 @@ class LogMessage implements Interfaces\LogMessageSerializableInterface,
     /**
      * Set any extra data to store alongside the log entry.    
      *
-     * @return void
+     * @return static
      */
     public function setExtra($extra)
     {
         $this->extra = $extra;
+
+        return $this;
     }
 
     /**
