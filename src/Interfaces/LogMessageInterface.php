@@ -15,6 +15,9 @@ use DateTime;
 
 /**
  * A message to be logged.
+ *
+ * @package com.xcitestudios.Logging
+ * @subpackage Interfaces
  */
 interface LogMessageInterface
 {

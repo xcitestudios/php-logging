@@ -11,6 +11,9 @@ namespace com\xcitestudios\Logging\Interfaces;
 
 /**
  * Interface for a provider who can handle LogMessage's.
+ *
+ * @package com.xcitestudios.Logging
+ * @subpackage Interfaces
  */
 interface LoggerInterface
 {

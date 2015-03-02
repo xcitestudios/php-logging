@@ -15,6 +15,8 @@ use stdClass;
 
 /**
  * A basic implementation of a the LoggMessageSerializableInterface.
+ *
+ * @package com.xcitestudios.Logging
  */
 class LogMessage implements Interfaces\LogMessageSerializableInterface,
     JsonSerializable

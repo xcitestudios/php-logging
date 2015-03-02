@@ -14,6 +14,8 @@ use JsonSerializable;
 
 /**
  * Log severities based on syslog.
+ *
+ * @package com.xcitestudios.Logging
  */
 class LogSeverity extends SplEnum
     implements JsonSerializable

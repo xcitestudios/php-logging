@@ -13,6 +13,9 @@ use com\xcitestudios\Generic\Data\Manipulation\Interfaces\SerializationInterface
 
 /**
  * A message to be logged and supports serialization.
+ *
+ * @package com.xcitestudios.Logging
+ * @subpackage Interfaces
  */
 interface LogMessageSerializableInterface
     extends LogMessageInterface, SerializationInterface
