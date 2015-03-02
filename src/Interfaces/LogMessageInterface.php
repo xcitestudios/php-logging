@@ -133,6 +133,7 @@ interface LogMessageInterface
     /**
      * Set any extra data to store alongside the log entry.    
      *
+     * @param string $extra
      * @return void
      */
     public function setExtra($extra);
