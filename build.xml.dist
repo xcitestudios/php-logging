@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com.xcitestudios.Parallelisation" default="tests">
+<project name="com.xcitestudios.Logging" default="tests">
     <target name="docs">
         <echo msg="Creating docs"/>
         <exec command="vendor/bin/phpdoc"/>
