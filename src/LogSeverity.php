@@ -86,6 +86,20 @@ class LogSeverity extends SplEnum
         
         parent::__construct($value);
     }
+
+    /**
+     * Create a log severity from a string.
+     *
+     * @param string $severity
+     *
+     * @return LogSeverity
+     */
+    public static function fromString($severity)
+    {
+        $ret = new LogSeverity();
+        $value = $ret->getConstList()[$severity];
+        return new LogSeverity($value);
+    }
     
     /**
      * Return the syslog string value when cast to string.
