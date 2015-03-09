@@ -72,7 +72,7 @@ class LogSeverity extends SplEnum
      * Allow setting value by syslog string (constant name).
      * 
      * @param string|int $value const or string, one of: emergency, alert, critical, error, warning, notice, informational, debug
-     * @throws RuntimeException if the string value is invalid
+     * @throws \RuntimeException if the string value is invalid
      */
     public function __construct($value = self::__default)
     {

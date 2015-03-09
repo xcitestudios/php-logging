@@ -17,7 +17,8 @@
     "ext-SPL_Types": "0.4.*",
     "xcitestudios/generic": "1.*",
     "xcitestudios/network": "1.*",
-    "xcitestudios/json-schemas": "1.*"
+    "xcitestudios/json-schemas": "1.*",
+    "psr/log": "1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "4.5.*",
