@@ -9,6 +9,7 @@
 
 namespace com\xcitestudios\Logging;
 use com\xcitestudios\Logging\Interfaces\LoggerInterface;
+use com\xcitestudios\Logging\Interfaces\LogMessageInterface;
 use Psr\Log\AbstractLogger;
 use DateTime;
 use Exception;
@@ -41,10 +42,10 @@ class PsrLogger extends AbstractLogger
      * Pass in the LoggerInterface interface to use underneath.
      * Also pass in a LogMessage pre-built with all but the level, datetime, message and messageArgs.
      *
-     * @param LoggerInterface $logger
-     * @param LogMessage      $baseLogMessage
+     * @param LoggerInterface     $logger
+     * @param LogMessageInterface $baseLogMessage
      */
-    public function __construct(LoggerInterface $logger, LogMessage $baseLogMessage)
+    public function __construct(LoggerInterface $logger, LogMessageInterface $baseLogMessage)
     {
         $this->xcitestudiosLogger = $logger;
         $this->logMessage         = $baseLogMessage;
@@ -80,16 +81,17 @@ class PsrLogger extends AbstractLogger
      * Converts a message using {KEY} and key=>value context to a sprintf format.
      * Far from fool-proof but it should work for most use cases of the PSR logger.
      *
-     * @param LogMessage $logMessage
-     * @param string     $message
-     * @param array      $context
+     * @param LogMessageInterface $logMessage
+     * @param string              $message
+     * @param array               $context
      *
      * @return LogMessage
      */
-    protected function fixMessageAndGetArgs(LogMessage $logMessage, $message, $context)
+    protected function fixMessageAndGetArgs(LogMessageInterface $logMessage, $message, $context)
     {
         if (count($context) === 0) {
             $logMessage->setMessage($message);
+            $logMessage->setMessageArgs([]);
             return $logMessage;
         }
 
@@ -143,8 +145,8 @@ class PsrLogger extends AbstractLogger
 
         $args = array_reverse($args);
 
-        $logMessage->setMessage($message)
-            ->setMessageArgs($args);
+        $logMessage->setMessage($message);
+        $logMessage->setMessageArgs($args);
 
         return $logMessage;
     }
