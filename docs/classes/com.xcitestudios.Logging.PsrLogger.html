@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    com.xcitestudios.Network &raquo; \com\xcitestudios\Logging\Interfaces\LoggerInterface
+    <title>    com.xcitestudios.Network &raquo; \com\xcitestudios\Logging\PsrLogger
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -120,8 +120,14 @@
             <i class="icon-custom icon-method"></i> Methods
             <ul>
                                                                                                     <li class="method public">
-        <a href="#method_log" title="log :: Handle the provided log message however it needs to be handled.">
-            <span class="description">Handle the provided log message however it needs to be handled.</span><pre>log</pre>
+        <a href="#method___construct" title="__construct :: Pass in the LoggerInterface interface to use underneath.">
+            <span class="description">Pass in the LoggerInterface interface to use underneath.</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_log" title="log :: Logs with an arbitrary level.">
+            <span class="description">Logs with an arbitrary level.</span><pre>log</pre>
         </a>
     </li>
 
@@ -129,11 +135,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                </ul>
+                                                                                                                    </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                </ul>
+                                                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -147,14 +153,17 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>LoggerInterface</h1>
+                <h1>PsrLogger</h1>
                 <small style="display: block; text-align: right">
-                                            Extends 
+                                            Extends \Psr\Log\AbstractLogger
                                                         </small>
-                <p class="short_description">Interface for a provider who can handle LogMessage&#039;s.</p>
+                <p class="short_description">If you want to use a PSR3 logger, this uses the interface but internally
+uses  com\xcitestudios\Logging\Interfaces\LoggerInterface.</p>
                 <div class="details">
                     <div class="long_description">
-                        
+                        <p>As PSR defines context to be an associative array, some magic will be done
+to convert this to a sprintf format for message and messageArgs.</p>
+<p>If exception exists in context it will be moved as JSON into the extra field.</p>
                     </div>
                     <table class="table table-bordered">
                                                                                     <tr>
@@ -166,22 +175,49 @@
                                                                                 <p>com.xcitestudios.Logging</p>
                                     </td>
                                 </tr>
-                                                                                                                <tr>
-                                    <th>
-                                        subpackage
-                                                                            </th>
-                                    <td>
-                                                                                    
-                                                                                <p>Interfaces</p>
-                                    </td>
-                                </tr>
-                                                                        </table>
+                                                                                                                                                                                </table>
 
                     <h3><i class="icon-custom icon-method"></i> Methods</h3>
-                                                                <a id="method_log"></a>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>Pass in the LoggerInterface interface to use underneath.</h2>
+                            <pre>__construct(\com\xcitestudios\Logging\Interfaces\LoggerInterface $logger, \com\xcitestudios\Logging\Interfaces\LogMessageInterface $baseLogMessage) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Also pass in a LogMessage pre-built with all but the level, datetime, message and messageArgs.</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$logger</h4>
+                                                <code><a href="../classes/com.xcitestudios.Logging.Interfaces.LoggerInterface.html">\com\xcitestudios\Logging\Interfaces\LoggerInterface</a></code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$baseLogMessage</h4>
+                                                <code><a href="../classes/com.xcitestudios.Logging.Interfaces.LogMessageInterface.html">\com\xcitestudios\Logging\Interfaces\LogMessageInterface</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_log"></a>
                         <div class="element clickable method public  method_log" data-toggle="collapse" data-target=".method_log .collapse">
-                            <h2>Handle the provided log message however it needs to be handled.</h2>
-                            <pre>log(\com\xcitestudios\Logging\Interfaces\LogMessageInterface $message) : void</pre>
+                            <h2>Logs with an arbitrary level.</h2>
+                            <pre>log(mixed $level, string $message, array $context = array()) : void</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -195,8 +231,16 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
+                                                <h4>$level</h4>
+                                                <code>mixed</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
                                                 <h4>$message</h4>
-                                                <code><a href="../classes/com.xcitestudios.Logging.Interfaces.LogMessageInterface.html">\com\xcitestudios\Logging\Interfaces\LogMessageInterface</a></code><p><p>Message to handle</p></p>
+                                                <code>string</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$context</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
@@ -207,14 +251,14 @@
                     
                                                         </div>
             </div>
-            <a id="\com\xcitestudios\Logging\Interfaces\LoggerInterface"></a>
+            <a id="\com\xcitestudios\Logging\PsrLogger"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
-    <li><span class="divider">\</span><a href="../namespaces/com.xcitestudios.Logging.Interfaces.html">Interfaces</a></li>
+    <li><span class="divider">\</span><a href="../namespaces/com.xcitestudios.Logging.html">Logging</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/com.xcitestudios.Logging.Interfaces.LoggerInterface.html">LoggerInterface</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/com.xcitestudios.Logging.PsrLogger.html">PsrLogger</a></li>
             </ul>
         </div>
     </div>
