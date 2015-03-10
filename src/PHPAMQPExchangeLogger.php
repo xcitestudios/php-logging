@@ -29,6 +29,8 @@ class PHPAMQPExchangeLogger extends AMQPExchangeLogger
     protected $exchange;
 
     /**
+     * Pass in the exchange to send log messages to.
+     * 
      * @param AMQPExchange $exchange
      */
     public function __construct(\AMQPExchange $exchange)
